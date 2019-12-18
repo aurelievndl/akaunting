@@ -15,6 +15,13 @@ class InvoiceItem extends Model
     protected $table = 'invoice_items';
 
     /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['title'];
+
+    /**
      * Attributes that should be mass-assignable.
      *
      * @var array
@@ -83,6 +90,34 @@ class InvoiceItem extends Model
     public function setTaxAttribute($value)
     {
         $this->attributes['tax'] = (double) $value;
+    }
+
+    /**
+     * Get the name including attributes.
+     *
+     * @return string
+     */
+    public function getTitleAttribute()
+    {
+        $title = $this->attributes['name'];
+
+        if ($this->extra_attributes->material['type']) {
+            $title .= ' ' . $this->extra_attributes->material['type'];
+        }
+
+        if ($this->extra_attributes->amount['value']) {
+            $title .= ' ' . $this->extra_attributes->amount['value'] . 'x ';
+        }
+
+        if ($this->extra_attributes->size['width']) {
+            $title .= ' ' . $this->extra_attributes->size['width'] . ' cm';
+        }
+
+        if ($this->extra_attributes->size['height']) {
+            $title .= '/' . $this->extra_attributes->size['height'] . ' cm';
+        }
+
+        return $title;
     }
 
     /**
