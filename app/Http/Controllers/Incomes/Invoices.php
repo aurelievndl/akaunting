@@ -20,6 +20,7 @@ use App\Models\Income\InvoiceStatus;
 use App\Models\Setting\Category;
 use App\Models\Setting\Currency;
 use App\Models\Setting\Tax;
+use App\Models\Setting\Service;
 use App\Notifications\Income\Invoice as Notification;
 use App\Traits\Contacts;
 use App\Traits\Currencies;
@@ -105,7 +106,9 @@ class Invoices extends Controller
 
         $number = $this->getNextInvoiceNumber();
 
-        return view('incomes.invoices.create', compact('customers', 'currencies', 'currency', 'items', 'taxes', 'categories', 'number'));
+        $services = Service::enabled()->orderBy('name')->get()->pluck('title', 'id');
+
+        return view('incomes.invoices.create', compact('customers', 'currencies', 'currency', 'items', 'taxes', 'categories', 'number', 'services'));
     }
 
     /**
@@ -199,7 +202,9 @@ class Invoices extends Controller
 
         $categories = Category::type('income')->enabled()->orderBy('name')->pluck('name', 'id');
 
-        return view('incomes.invoices.edit', compact('invoice', 'customers', 'currencies', 'currency', 'items', 'taxes', 'categories'));
+        $services = Service::enabled()->orderBy('name')->get()->pluck('title', 'id');
+
+        return view('incomes.invoices.edit', compact('invoice', 'customers', 'currencies', 'currency', 'items', 'taxes', 'categories', 'services'));
     }
 
     /**
