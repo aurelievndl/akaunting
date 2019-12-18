@@ -66,7 +66,8 @@ const app = new Vue({
                     price: (item.price).toFixed(2),
                     quantity: item.quantity,
                     tax_id: item.tax_id,
-                    total: (item.total).toFixed(2)
+                    total: (item.total).toFixed(2),
+                    extra_attributes: item.extra_attributes
                 });
             });
 
@@ -143,6 +144,8 @@ const app = new Vue({
                 }
             });
 
+            row['extra_attributes'] = '';
+
             this.form.items.push(Object.assign({}, row));
         },
 
@@ -174,6 +177,7 @@ const app = new Vue({
             this.form.items[index].price = (item.purchase_price).toFixed(2);
             this.form.items[index].quantity = 1;
             this.form.items[index].total = item.total;
+            this.form.items[index].extra_attributes = item.extra_attributes;
 
             this.form.items[index].show = false;
         },

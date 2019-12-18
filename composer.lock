@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3300c4c74f9b0cd865cd7f8d197581b4",
+    "content-hash": "b95a60c80b6a3e2a1f7b920d6803f0de",
     "packages": [
         {
             "name": "akaunting/firewall",
@@ -5332,6 +5332,106 @@
                 "os"
             ],
             "time": "2016-07-28T15:35:24+00:00"
+        },
+        {
+            "name": "spatie/laravel-schemaless-attributes",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-schemaless-attributes.git",
+                "reference": "7bd66feab0bc5289c089c8c53201a929781797dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-schemaless-attributes/zipball/7bd66feab0bc5289c089c8c53201a929781797dc",
+                "reference": "7bd66feab0bc5289c089c8c53201a929781797dc",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^5.6|^6.0",
+                "illuminate/support": "^5.6|^6.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "larapack/dd": "^1.0",
+                "orchestra/testbench": "^3.6|^4.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\SchemalessAttributes\\SchemalessAttributesServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\SchemalessAttributes\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Add schemaless attributes to Eloquent models",
+            "homepage": "https://github.com/spatie/laravel-schemaless-attributes",
+            "keywords": [
+                "laravel-schemaless-attributes",
+                "spatie"
+            ],
+            "time": "2019-09-04T07:08:44+00:00"
+        },
+        {
+            "name": "staudenmeir/eloquent-has-many-deep",
+            "version": "v1.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/staudenmeir/eloquent-has-many-deep.git",
+                "reference": "c87e8fb03071666d656e136c43b40a58d02950c8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/staudenmeir/eloquent-has-many-deep/zipball/c87e8fb03071666d656e136c43b40a58d02950c8",
+                "reference": "c87e8fb03071666d656e136c43b40a58d02950c8",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^6.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "illuminate/pagination": "^6.0",
+                "laravel/homestead": "^9.0",
+                "phpunit/phpunit": "^8.0",
+                "staudenmeir/eloquent-eager-limit": "^1.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Staudenmeir\\EloquentHasManyDeep\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonas Staudenmeir",
+                    "email": "mail@jonas-staudenmeir.de"
+                }
+            ],
+            "description": "Laravel Eloquent HasManyThrough relationship with unlimited levels",
+            "time": "2019-09-21T19:48:04+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

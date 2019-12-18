@@ -5,6 +5,7 @@ namespace App\Models\Income;
 use App\Abstracts\Model;
 use App\Traits\Currencies;
 use Bkwld\Cloner\Cloneable;
+use Spatie\SchemalessAttributes\SchemalessAttributes;
 
 class InvoiceItem extends Model
 {
@@ -19,6 +20,15 @@ class InvoiceItem extends Model
      * @var array
      */
     protected $fillable = ['company_id', 'invoice_id', 'item_id', 'name', 'quantity', 'price', 'total', 'tax'];
+
+    /**
+     * Attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    public $casts = [
+        'extra_attributes' => 'array',
+    ];
 
     /**
      * Clonable relationships.
@@ -73,5 +83,19 @@ class InvoiceItem extends Model
     public function setTaxAttribute($value)
     {
         $this->attributes['tax'] = (double) $value;
+    }
+
+    /**
+     */
+    public function getExtraAttributesAttribute(): SchemalessAttributes
+    {
+        return SchemalessAttributes::createForModel($this, 'extra_attributes');
+    }
+
+    /**
+     */
+    public function scopeWithExtraAttributes(): Builder
+    {
+        return SchemalessAttributes::scopeWithSchemalessAttributes('extra_attributes');
     }
 }

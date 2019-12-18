@@ -44,6 +44,7 @@
         "plank/laravel-mediable": "3.0.*",
         "santigarcor/laratrust": "5.2.*",
         "simshaun/recurr": "4.0.*",
+        "spatie/laravel-schemaless-attributes": "^1.6",
         "staudenmeir/eloquent-has-many-deep": "1.11"
     },
     "require-dev": {

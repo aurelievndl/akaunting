@@ -116,6 +116,49 @@
                     <span id="item-total" v-html="row.total">@money($item->total, $invoice->currency_code, true)</span>
                 @endif
             @stack('total_input_end')
+
+            </td>
+            <td class="col-md-6">
+                <h4>Service</h4>
+
+                {{ Form::multiSelectAddNewGroup('service_id', '', '', $services, '', [
+                    'data-item' => 'service_id',
+                    // 'v-model' => 'row.tax_id',
+                    // 'change' => 'onCalculateTotal',
+                    'class' => 'form-control'
+                ], 'select-service') }}
+
+                <div class="form-group mr-2">
+                    <label>Location</label>
+                    <input class="form-control"
+                        type="text"
+                        autocomplete="off">
+                </div>
+            </td>
+
+        <div v-if="row">
+            </td>
+            <td class="col-md-6">
+                <h4>Attributes</h4>
+                <div v-for="(attributes, attributesIndex) in row.extra_attributes" :index="attributesIndex">
+                    <strong v-html="attributesIndex" class="mr-2"></strong>
+                    <div class="d-flex">
+                    <div v-for="(attribute, attributeIndex) in attributes" :index="attributeIndex" class="d-flex w-auto">
+                        <div class="form-group mr-2">
+                            <label v-html="attributeIndex"></label>
+                            <input class="form-control"
+                                :data-item="attributeIndex"
+                                :name="'items[][extra_attributes][' + attributesIndex + '][' + attributeIndex + ']'"
+                                v-model="row.extra_attributes[attributesIndex][attributeIndex]"
+                                type="text"
+                                autocomplete="off">
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </td>
+        </div>
+
         </td>
     @stack('total_td_end')
 </tr>

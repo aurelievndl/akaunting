@@ -6,6 +6,7 @@ use App\Abstracts\Model;
 use App\Traits\Currencies;
 use App\Traits\Media;
 use Bkwld\Cloner\Cloneable;
+use Spatie\SchemalessAttributes\SchemalessAttributes;
 
 class Item extends Model
 {
@@ -28,11 +29,20 @@ class Item extends Model
     protected $fillable = ['company_id', 'name', 'description', 'sale_price', 'purchase_price', 'category_id', 'tax_id', 'enabled'];
 
     /**
-     * Sortable columns.
+    * The attributes that should be casted to native types.
+    *
+    * @var array
+    */
+    protected $sortable = ['name', 'category', 'sale_price', 'purchase_price', 'enabled'];
+
+    /**
+     * Attributes that should be casted to native types.
      *
      * @var array
      */
-    protected $sortable = ['name', 'category', 'sale_price', 'purchase_price', 'enabled'];
+    public $casts = [
+        'extra_attributes' => 'array',
+    ];
 
     public function category()
     {
@@ -131,5 +141,19 @@ class Item extends Model
         }
 
         return $this->getMedia('picture')->last();
+    }
+
+    /**
+     */
+    public function getExtraAttributesAttribute(): SchemalessAttributes
+    {
+        return SchemalessAttributes::createForModel($this, 'extra_attributes');
+    }
+
+    /**
+     */
+    public function scopeWithExtraAttributes(): Builder
+    {
+        return SchemalessAttributes::scopeWithSchemalessAttributes('extra_attributes');
     }
 }
