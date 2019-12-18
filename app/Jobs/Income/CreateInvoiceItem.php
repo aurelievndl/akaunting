@@ -141,6 +141,11 @@ class CreateInvoiceItem extends Job
             'total' => $item_amount,
         ]);
 
+        if (!empty($this->request['extra_attributes'])) {
+            $invoice_item->extra_attributes = $this->request['extra_attributes'];
+            $invoice_item->save();
+        }
+
         $invoice_item->item_taxes = false;
         $invoice_item->inclusives = false;
         $invoice_item->compounds = false;
