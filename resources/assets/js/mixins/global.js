@@ -18,6 +18,8 @@ import NProgressAxios from './../plugins/nprogress-axios';
 import {VMoney} from 'v-money';
 import { Select, Option } from 'element-ui';
 
+import LeafletMap from './../components/LeafletMap';
+
 // plugin setup
 Vue.use(DashboardPlugin);
 
@@ -30,7 +32,8 @@ export default {
         AkauntingDate,
         AkauntingRecurring,
         [Select.name]: Select,
-        [Option.name]: Option
+        [Option.name]: Option,
+        LeafletMap
     },
 
     data: function () {
