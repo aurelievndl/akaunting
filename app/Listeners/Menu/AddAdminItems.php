@@ -49,6 +49,11 @@ class AddAdminItems
             $menu->route('items.index', trans_choice('general.items', 2), [], 2, ['icon' => 'fa fa-cube']);
         }
 
+        // Planning
+        if ($user->can('read-planning-routes')) {
+            $menu->route('planning.routes.index', trans_choice('general.planning', 2), [], 2, ['icon' => 'fa fa-pin']);
+        }
+
         // Incomes
         if ($user->can(['read-incomes-invoices', 'read-incomes-revenues', 'read-incomes-customers'])) {
             $menu->dropdown(trim(trans_choice('general.incomes', 2)), function ($sub) use ($user, $attr) {

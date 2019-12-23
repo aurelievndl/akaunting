@@ -54,6 +54,12 @@ Route::group(['prefix' => 'auth'], function () {
     Route::resource('permissions', 'Auth\Permissions');
 });
 
+Route::group(['prefix' => 'planning'], function () {
+    Route::get('routes', 'Planning\PlanningRoutes@index')->name('planning.routes.index');
+    Route::get('routes/create', 'Planning\PlanningRoutes@create')->name('planning.routes.create');
+    Route::post('routes/store', 'Planning\PlanningRoutes@store')->name('planning.routes.store');
+});
+
 Route::group(['prefix' => 'incomes'], function () {
     Route::get('invoices/{invoice}/sent', 'Incomes\Invoices@markSent')->name('invoices.sent');
     Route::get('invoices/{invoice}/email', 'Incomes\Invoices@emailInvoice')->name('invoices.email');
