@@ -35,6 +35,9 @@ mix
     .js('resources/assets/js/views/common/reports.js', 'public/js/common')
     .js('resources/assets/js/views/common/search.js', 'public/js/common')
 
+    // Planning
+    .js('resources/assets/js/views/planning/routes.js', 'public/js/planning')
+
     // Expenses
     .js('resources/assets/js/views/expenses/bills.js', 'public/js/expenses')
     .js('resources/assets/js/views/expenses/payments.js', 'public/js/expenses')

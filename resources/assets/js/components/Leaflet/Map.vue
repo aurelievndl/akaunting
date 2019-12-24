@@ -27,8 +27,8 @@
         async mounted() {
             // const tiles = "https://1.base.maps.api.here.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/512/png8?app_id={hereAppId}&app_code={hereAppCode}";
             // const tiles = "https://2.base.maps.ls.hereapi.com/maptile/2.1/trucktile/newest/normal.day/16/35201/21491/256/png8?style=fleet&app_id={hereAppId}&app_code={hereAppCode}";
-            // const tiles = "https://2.traffic.maps.ls.hereapi.com/maptile/2.1/trucktile/newest/normal.day/{z}/{x}/{y}/256/png8?apiKey={apiKey}&congestion";
-            const tiles = "https://4.base.maps.ls.hereapi.com/maptile/2.1/maptile/newest/{scheme}/{z}/{x}/{y}/{size}/{format}?apiKey={apiKey}&lg={lg}&style={style}&pois{pois}&ppi={ppi}";
+            // const tiles = "https://2.traffic.maps.ls.hereapi.com/maptile/2.1/trucktile/newest/normal.day/{z}/{x}/{y}/256/png8?apiKey={hereApiKey}&congestion";
+            const tiles = "https://4.base.maps.ls.hereapi.com/maptile/2.1/maptile/newest/{scheme}/{z}/{x}/{y}/{size}/{format}?apiKey={hereApiKey}&lg={lg}&style={style}&pois{pois}&ppi={ppi}";
 
             console.log(tiles);
 

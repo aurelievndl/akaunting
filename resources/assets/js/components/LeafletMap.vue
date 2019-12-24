@@ -2,9 +2,9 @@
     <div>
         <leafletmap
             ref="refmap"
-            :appId="hereAppId"
-            :appCode="hereAppCode"
-            :apiKey="hereApiKey"
+            :here-app-id="hereAppId"
+            :here-app-code="hereAppCode"
+            :here-api-key="hereApiKey"
             latitude="51.0543"
             longitude="3.7174"
         />
@@ -19,11 +19,26 @@
             'leafletmap': Map,
         },
         props: {
-            hereApiKey: String,
-            hereAppId: String,
-            hereAppCode: String,
-            drawRoute: Array,
-            sequence: Array
+            hereApiKey: {
+                type: String,
+                default: true,
+            },
+            hereAppId: {
+                type: String,
+                default: true,
+            },
+            hereAppCode: {
+                type: String,
+                default: true,
+            },
+            drawRoute: {
+                type: Array,
+                default: () => [],
+            },
+            sequence: {
+                type: Array,
+                default: () => [],
+            },
         },
         created() {
             this.sequenceMarkerGroup = new L.featureGroup();
